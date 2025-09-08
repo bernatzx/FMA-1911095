@@ -30,8 +30,8 @@ require_once 'conf.php';
                     ?>
                     <a href="<?= $berandaUrl ?>">
                         <div
-                            class="flex items-center p-2 rounded-md hover:shadow-sm hover:text-white hover:bg-blue-400 <?= $berandaAktif ? 'bg-blue-400 text-white shadow-sm' : '' ?>">
-                            Beranda
+                            class="flex items-center gap-2 p-2 rounded-md hover:shadow-sm hover:text-white hover:bg-blue-400 <?= $berandaAktif ? 'bg-blue-400 text-white shadow-sm' : '' ?>">
+                            <i class="fas fa-gauge fa-fw"></i> Beranda
                         </div>
                     </a>
                     <?php
@@ -44,8 +44,9 @@ require_once 'conf.php';
                         <?php foreach ($items as $men) {
                             $u = (strpos($halamanAktif, $men["url"]) === 0); ?>
                             <a href="<?= $men['url'] ?>"
-                                class="flex items-center p-2 rounded-md hover:shadow-sm hover:text-white hover:bg-blue-400 <?= ($u ? 'bg-blue-400 text-white shadow-sm' : '') ?>">
-                                <div><?= $men['label'] ?></div>
+                                class="gap-2 flex items-center p-2 rounded-md hover:shadow-sm hover:text-white hover:bg-blue-400 <?= ($u ? 'bg-blue-400 text-white shadow-sm' : '') ?>">
+                                <i class="<?= $men['icon'] ?> fa-fw"></i>
+                                <?= $men['label'] ?>
                             </a>
                         <?php }
                     }
@@ -57,4 +58,4 @@ require_once 'conf.php';
                 </div>
             </div>
         </nav>
-        <div class="content">
+        <div class="p-6">
