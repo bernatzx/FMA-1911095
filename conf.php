@@ -19,13 +19,17 @@ function base($url = null)
 $halamanAktif = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $berandaUrl = base('pages/beranda/');
 $berandaAktif = ($halamanAktif === $berandaUrl);
+$sl_matkul = 'Mengelola data mata kuliah yang tersedia pada Semester Pendek';
+$sl_mhs = 'Mengelola data mahasiswa pada Semester Pendek';
+$sl_daftar = 'Melihat dan mengelola laporan pendaftaran Semester Pendek';
+$sl_bayar = 'Melihat dan mengelola laporan pembayaran Semester Pendek';
 $menu = [
     "Data" => [
-        ["url" => base('pages/matkul/'), "label" => "Mata Kuliah SP", 'icon' => 'fas fa-book'],
-        ["url" => base('pages/mhs/'), "label" => "Mahasiswa", 'icon' => 'fas fa-address-book'],
+        ["url" => base('pages/matkul/'), "label" => "Mata Kuliah SP", 'sublabel' => $sl_matkul, 'icon' => 'fas fa-book'],
+        ["url" => base('pages/mhs/'), "label" => "Mahasiswa", 'sublabel' => $sl_mhs, 'icon' => 'fas fa-address-book'],
     ],
     "Laporan" => [
-        ["url" => base('pages/pendaftaran'), "label" => "Pendaftaran", 'icon' => 'fas fa-rectangle-list'],
-        ["url" => base('pages/pembayaran'), "label" => "Pembayaran", 'icon' => 'fas fa-money-bill'],
+        ["url" => base('pages/pendaftaran'), "label" => "Pendaftaran", 'sublabel' => $sl_daftar, 'icon' => 'fas fa-rectangle-list'],
+        ["url" => base('pages/pembayaran'), "label" => "Pembayaran", 'sublabel' => $sl_bayar, 'icon' => 'fas fa-money-bill'],
     ]
 ];

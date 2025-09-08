@@ -13,7 +13,7 @@ require_once 'conf.php';
 </head>
 
 <body>
-    <div class="relative flex h-screen">
+    <div class="flex h-screen w-screen">
         <nav class="p-6 flex flex-col bg-gray-200 w-[300px] border-r shadow-lg">
             <div class="flex font-bold ">
                 <div class="text-[45px] leading-[1]">
@@ -44,7 +44,7 @@ require_once 'conf.php';
                         <?php foreach ($items as $men) {
                             $u = (strpos($halamanAktif, $men["url"]) === 0); ?>
                             <a href="<?= $men['url'] ?>"
-                                class="gap-2 flex items-center p-2 rounded-md hover:shadow-sm hover:text-white hover:bg-blue-400 <?= ($u ? 'bg-blue-400 text-white shadow-sm' : '') ?>">
+                                class="gap-2 text-gray-800 flex items-center p-2 rounded-md hover:shadow-sm hover:text-white hover:bg-blue-400 <?= ($u ? 'bg-blue-400 text-white shadow-sm' : '') ?>">
                                 <i class="<?= $men['icon'] ?> fa-fw"></i>
                                 <?= $men['label'] ?>
                             </a>
@@ -63,7 +63,7 @@ require_once 'conf.php';
                             </div>
                         </div>
                         <div class="font-medium flex-auto">
-                            <div class="">Farhat Alkatiri</div>
+                            <div>Farhat Alkatiri</div>
                             <div class="text-xs">Administrator/Staf Tu</div>
                         </div>
                         <div>
@@ -73,4 +73,4 @@ require_once 'conf.php';
                 </div>
             </div>
         </nav>
-        <div class="p-6">
+        <div class="p-6 flex-1">
