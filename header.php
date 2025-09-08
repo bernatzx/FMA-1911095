@@ -30,7 +30,7 @@ require_once 'conf.php';
                     ?>
                     <a href="<?= $berandaUrl ?>">
                         <div
-                            class="flex items-center gap-2 p-2 rounded-md hover:shadow-sm hover:text-white hover:bg-blue-400 <?= $berandaAktif ? 'bg-blue-400 text-white shadow-sm' : '' ?>">
+                            class="flex text-gray-800 items-center gap-2 p-2 rounded-md hover:shadow-sm hover:text-white hover:bg-blue-400 <?= $berandaAktif ? 'bg-blue-400 text-white shadow-sm' : '' ?>">
                             <i class="fas fa-gauge fa-fw"></i> Beranda
                         </div>
                     </a>
