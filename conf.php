@@ -22,10 +22,10 @@ $berandaAktif = ($halamanAktif === $berandaUrl);
 $menu = [
     "Data" => [
         ["url" => base('pages/matkul/'), "label" => "Mata Kuliah SP"],
-        ["url" => "/mahasiswa", "label" => "Mahasiswa"],
+        ["url" => base('pages/mhs/'), "label" => "Mahasiswa"],
     ],
     "Laporan" => [
-        ["url" => "/pendaftaran", "label" => "Pendaftaran"],
-        ["url" => "/pembayaran", "label" => "Pembayaran"],
+        ["url" => base('pages/pendaftaran'), "label" => "Pendaftaran"],
+        ["url" => base('pages/pembayaran'), "label" => "Pembayaran"],
     ]
 ];
