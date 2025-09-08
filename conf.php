@@ -21,11 +21,11 @@ $berandaUrl = base('pages/beranda/');
 $berandaAktif = ($halamanAktif === $berandaUrl);
 $menu = [
     "Data" => [
-        ["url" => base('pages/matkul/'), "label" => "Mata Kuliah SP", 'icon' => 'fas fa-info'],
-        ["url" => base('pages/mhs/'), "label" => "Mahasiswa", 'icon' => 'fas fa-gauge'],
+        ["url" => base('pages/matkul/'), "label" => "Mata Kuliah SP", 'icon' => 'fas fa-book'],
+        ["url" => base('pages/mhs/'), "label" => "Mahasiswa", 'icon' => 'fas fa-address-book'],
     ],
     "Laporan" => [
-        ["url" => base('pages/pendaftaran'), "label" => "Pendaftaran", 'icon' => 'fas fa-gauge'],
-        ["url" => base('pages/pembayaran'), "label" => "Pembayaran", 'icon' => 'fas fa-gauge'],
+        ["url" => base('pages/pendaftaran'), "label" => "Pendaftaran", 'icon' => 'fas fa-rectangle-list'],
+        ["url" => base('pages/pembayaran'), "label" => "Pembayaran", 'icon' => 'fas fa-money-bill'],
     ]
 ];

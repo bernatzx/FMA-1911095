@@ -25,7 +25,7 @@ require_once 'conf.php';
                 </div>
             </div>
             <div class="flex flex-col flex-auto mt-6">
-                <div class="flex-auto flex-col font-medium">
+                <div class="flex-auto flex-col font-medium text-lg">
                     <?php
                     ?>
                     <a href="<?= $berandaUrl ?>">
@@ -54,7 +54,22 @@ require_once 'conf.php';
 
                 </div>
                 <div>
-                    user
+                    <a href="#" class="flex gap-2 items-center hover:bg-gray-300 rounded-full pr-2">
+                        <div
+                            class="border-[3px] justify-center text-gray-600 border-gray-600 flex items-center rounded-full">
+                            <div
+                                class="w-10 h-10 flex items-center relative justify-center border-2 border-transparent rounded-full overflow-hidden">
+                                <i class="text-[38px] fas fa-user top-1 absolute"></i>
+                            </div>
+                        </div>
+                        <div class="font-medium flex-auto">
+                            <div class="">Farhat Alkatiri</div>
+                            <div class="text-xs">Administrator/Staf Tu</div>
+                        </div>
+                        <div>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
                 </div>
             </div>
         </nav>
