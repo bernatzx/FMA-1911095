@@ -53,19 +53,22 @@ require_once 'conf.php';
                     ?>
 
                 </div>
-                <div>
-                    <div class="flex gap-2 items-center">
+                <div class="flex gap-2 items-center">
+                    <div
+                        class="border-[3px] justify-center text-gray-600 border-gray-600 flex items-center rounded-full">
                         <div
-                            class="border-[3px] justify-center text-gray-600 border-gray-600 flex items-center rounded-full">
-                            <div
-                                class="w-10 h-10 flex items-center relative justify-center border-2 border-transparent rounded-full overflow-hidden">
-                                <i class="text-[38px] fas fa-user top-1 absolute"></i>
-                            </div>
+                            class="w-10 h-10 flex items-center relative justify-center border-2 border-transparent rounded-full overflow-hidden">
+                            <i class="text-[38px] fas fa-user top-1 absolute"></i>
                         </div>
-                        <div class="font-medium">
-                            <div>Farhat Alkatiri</div>
-                            <div class="text-xs">Administrator/Staf Tu</div>
-                        </div>
+                    </div>
+                    <div class="font-medium flex-auto text-gray-800">
+                        <div>Farhat Alkatiri</div>
+                        <div class="text-xs">Administrator/Staf Tu</div>
+                    </div>
+                    <div class="flex items-center text-gray-800">
+                        <a href="" class="py-1 px-2 hover:bg-red-500 hover:text-white bg-opacity-70 rounded-full">
+                            <i class="fas fa-right-from-bracket"></i>
+                        </a>
                     </div>
                 </div>
             </div>
