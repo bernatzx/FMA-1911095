@@ -10,7 +10,8 @@
         </span>
     </div>
     <div>
-        <button onclick="window.location.href='add.php'" type="button" class="bg-opacity-90 gap-2 px-5 py-2 bg-green-700 hover:bg-green-800 text-sm text-white rounded-lg">
+        <button onclick="window.location.href='add.php'" type="button"
+            class="bg-opacity-90 gap-2 px-5 py-2 bg-green-700 hover:bg-green-800 text-sm text-white rounded-lg">
             <i class="fas fa-add"></i>
             <span>
                 Tambah MK
@@ -36,11 +37,14 @@
                 <td class="p-3 tracking-wider text-sm text-gray-700">Linux</td>
                 <td class="p-3 tracking-wider text-sm text-gray-700">2</td>
                 <td class="p-3 tracking-wider text-sm text-gray-700 font-medium flex gap-2">
-                    <button type="button" class="bg-yellow-200 py-1 px-2 bg-opacity-60 hover:bg-opacity-100 rounded-lg text-yellow-800 flex items-center gap-1">
+                    <button onclick="window.location.href='edit.php'" type="button"
+                        class="bg-yellow-200 py-1 px-2 bg-opacity-60 hover:bg-opacity-100 rounded-lg text-yellow-800 flex items-center gap-1">
                         <i class="fas fa-pencil"></i>
                         <span>Ubah</span>
                     </button>
-                    <button type="button" class="bg-red-200 py-1 px-2 bg-opacity-60 hover:bg-opacity-100 rounded-lg text-red-800 flex items-center gap-1">
+                    <button type="button"
+                        onclick="if(confirm('Anda akan menghapus data ini?')){window.location.href='edit.php'}"
+                        class="bg-red-200 py-1 px-2 bg-opacity-60 hover:bg-opacity-100 rounded-lg text-red-800 flex items-center gap-1">
                         <i class="fas fa-trash"></i>
                         <span>Hapus</span>
                     </button>
