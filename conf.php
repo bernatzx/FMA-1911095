@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $hub = mysqli_connect("localhost", "root", "", "db_farhat");
 if (mysqli_connect_errno()) {
     echo mysqli_connect_error();
