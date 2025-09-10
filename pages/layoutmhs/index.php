@@ -48,138 +48,79 @@
             KULIAH SEMESTER PENDEK
             (Studi kasus : Prodi Informatika Universitas Khairun Ternate)
         </div>
-        <div class="gap-2 text-gray-800 flex items-center">
-            <div class="text-xs">
-                Pilih Mata Kuliah Semester Pendek yang akan Dikontrak
-            </div>
-            <div class="border-t flex-grow"></div>
-        </div>
-        <div class="text-xs my-6 text-right">
-            <i class="fas fa-circle-info"></i>
-            <span>1 SKS Rp.300.000</span>
-        </div>
 
-        <!-- TABEL MK TERSEDIA -->
-        <div class="my-6 rounded-lg shadow border">
-            <table class="w-full">
-                <thead class="bg-gray-50 border-b-2 border-gray-200">
-                    <tr>
-                        <th class="p-3 text-left tracking-wider w-36">Kode MK</th>
-                        <th class="p-3 text-left tracking-wider">Mata Kuliah</th>
-                        <th class="p-3 text-left tracking-wider w-20">SKS</th>
-                        <th class="p-3 text-left tracking-wider w-20">Pilih</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="odd:bg-white even:bg-gray-50">
-                        <td class="p-3 tracking-wider">287HJJS5</td>
-                        <td class="p-3 tracking-wider">Linux</td>
-                        <td class="p-3 tracking-wider">2</td>
-                        <td class="p-3 tracking-wider">
-                            <input type="checkbox" name="" id="">
-                        </td>
-                    </tr>
-                    <tr class="odd:bg-white even:bg-gray-50">
-                        <td class="p-3 tracking-wider">287HJJS5</td>
-                        <td class="p-3 tracking-wider">Linux</td>
-                        <td class="p-3 tracking-wider">3</td>
-                        <td class="p-3 tracking-wider">
-                            <input type="checkbox" name="" id="">
-                        </td>
-                    </tr>
-                    <tr class="odd:bg-white even:bg-gray-50">
-                        <td class="p-3 tracking-wider">287HJJS5</td>
-                        <td class="p-3 tracking-wider">Linux</td>
-                        <td class="p-3 tracking-wider">2</td>
-                        <td class="p-3 tracking-wider">
-                            <input type="checkbox" name="" id="">
-                        </td>
-                    </tr>
-                    <tr class="odd:bg-white even:bg-gray-50">
-                        <td class="p-3 tracking-wider">287HJJS5</td>
-                        <td class="p-3 tracking-wider">Linux</td>
-                        <td class="p-3 tracking-wider">2</td>
-                        <td class="p-3 tracking-wider">
-                            <input type="checkbox" name="" id="">
-                        </td>
-                    </tr>
-                    <tr class="odd:bg-white even:bg-gray-50">
-                        <td class="p-3 tracking-wider">287HJJS5</td>
-                        <td class="p-3 tracking-wider">Linux</td>
-                        <td class="p-3 tracking-wider">2</td>
-                        <td class="p-3 tracking-wider">
-                            <input type="checkbox" name="" id="">
-                        </td>
-                    </tr>
-                    <tr class="odd:bg-white even:bg-gray-50">
-                        <td class="p-3 tracking-wider">287HJJS5</td>
-                        <td class="p-3 tracking-wider">Linux</td>
-                        <td class="p-3 tracking-wider">2</td>
-                        <td class="p-3 tracking-wider">
-                            <input type="checkbox" name="" id="">
-                        </td>
-                    </tr>
-                    <tr class="odd:bg-white even:bg-gray-50">
-                        <td class="p-3 tracking-wider">287HJJS5</td>
-                        <td class="p-3 tracking-wider">Linux</td>
-                        <td class="p-3 tracking-wider">2</td>
-                        <td class="p-3 tracking-wider">
-                            <input type="checkbox" name="" id="">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- PRATINJAU -->
-        <div class="gap-2 text-gray-800 flex items-center">
-            <div class="border-t flex-grow"></div>
-            <div class="text-xs">
-                Pratinjau
+        <!-- SESI PILIH DAN PRATINJAU -->
+        <div id="sesiPratinjau" class="py-6">
+            <div class="gap-2 text-gray-800 flex items-center">
+                <div class="text-xs">
+                    Pilih Mata Kuliah Semester Pendek yang akan Dikontrak
+                </div>
+                <div class="border-t flex-grow"></div>
             </div>
-            <div class="border-t flex-grow"></div>
-        </div>
-        <div class="my-6">
-            <table class="w-full">
-                <thead class="bg-gray-50 border-b-2 border-gray-200">
-                    <tr>
-                        <th class="p-3 text-left tracking-wider w-36">Kode MK</th>
-                        <th class="p-3 text-left tracking-wider">Mata Kuliah</th>
-                        <th class="p-3 text-left tracking-wider w-20">SKS</th>
-                        <th class="p-3 text-left tracking-wider w-48">Total Harga</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="odd:bg-white even:bg-gray-50">
-                        <td class="p-3 tracking-wider">287HJJS5</td>
-                        <td class="p-3 tracking-wider">Linux</td>
-                        <td class="p-3 tracking-wider">2</td>
-                        <td class="p-3 tracking-wider">Rp.600.000</td>
-                    </tr>
-                </tbody>
-                <tfoot class="bg-gray-100 font-semibold border-t-2">
-                    <tr>
-                        <td class="p-3 tracking-wider" colspan="2">Total</td>
-                        <td class="p-3 tracking-wider">0</td>
-                        <td class="p-3 tracking-wider">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-            <div class="py-3">
-                <button
-                    class="flex gap-2 items-center p-2 hover:bg-opacity-100 bg-opacity-60 rounded-md bg-green-500 text-green-800 float-right">
-                    <i class="fas fa-check"></i>
-                    <div>Konfirmasi</div>
-                </button>
+            <div class="text-xs my-6 text-right">
+                <i class="fas fa-circle-info"></i>
+                <span>1 SKS Rp.300.000</span>
+            </div>
+
+            <!-- TABEL MK TERSEDIA -->
+            <div class="mb-6 rounded-lg shadow border">
+                <table class="w-full" id="tabelMk">
+                    <thead class="bg-gray-50 border-b-2 border-gray-200">
+                        <tr>
+                            <th class="p-3 text-left tracking-wider w-36">Kode MK</th>
+                            <th class="p-3 text-left tracking-wider">Mata Kuliah</th>
+                            <th class="p-3 text-left tracking-wider w-20">SKS</th>
+                            <th class="p-3 text-left tracking-wider w-20">Pilih</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- TABEL PRATINJAU -->
+            <div class="gap-2 text-gray-800 flex items-center">
+                <div class="border-t flex-grow"></div>
+                <div class="text-xs">
+                    Pratinjau
+                </div>
+                <div class="border-t flex-grow"></div>
+            </div>
+            <div class="my-6">
+                <div id="warn" class="mb-3 text-red-600 font-medium hidden"></div>
+                <table class="w-full" id="tabelPra">
+                    <thead class="bg-gray-50 border-b-2 border-gray-200">
+                        <tr>
+                            <th class="p-3 text-left tracking-wider w-36">Kode MK</th>
+                            <th class="p-3 text-left tracking-wider">Mata Kuliah</th>
+                            <th class="p-3 text-left tracking-wider w-20">SKS</th>
+                            <th class="p-3 text-left tracking-wider w-20">Tiuds</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot class="bg-gray-100 font-semibold border-t-2">
+                        <tr>
+                            <td class="p-3 tracking-wider" colspan="2">Total</td>
+                            <td class="p-3 tracking-wider" id="totalSks">0</td>
+                            <td class="p-3 tracking-wider" id="totalHarga">0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="py-3">
+                    <button id="confBtn"
+                        class=" disabled:bg-opacity-30 flex gap-2 items-center p-2 hover:bg-opacity-100 bg-opacity-60 rounded-md bg-green-500 text-green-800 float-right">
+                        <i class="fas fa-check"></i>
+                        <div>Konfirmasi</div>
+                    </button>
+                </div>
             </div>
         </div>
 
         <!-- SESI BAYAR -->
-        <div class="py-6">
+        <div class="py-6 hidden" id="sesiBayar">
             <div class="gap-2 text-gray-800 flex items-center mb-6">
                 <div class="border-t flex-grow"></div>
                 <div class="text-xs">
-                    Lunas
+                    Daftar MK Semester Pendek yang Anda Kontrak
                 </div>
                 <div class="border-t flex-grow"></div>
             </div>
@@ -219,6 +160,94 @@
     </div>
 
     <script src="<?= base('assets/js/all.min.js') ?>"></script>
+    <script>
+        const sesiPratinjau = document.getElementById("sesiPratinjau");
+        const sesiBayar = document.getElementById("sesiBayar");
+        const confBtn = document.getElementById("confBtn");
+        sesiBayar.classList.add("hidden");
+        confBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            sesiPratinjau.classList.add("hidden");
+            sesiBayar.classList.remove("hidden");
+        })
+
+        const tbodyMk = document.querySelector("#tabelMk tbody");
+        const tbodyPra = document.querySelector("#tabelPra tbody");
+        const totalSksE1 = document.getElementById("totalSks");
+        const totalHargaE1 = document.getElementById("totalHarga");
+        const warnE1 = document.getElementById("warn");
+
+        const matkul = [
+            { kode: "19827sa", nama: "Linux", sks: "2" },
+            { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
+            { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
+            { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
+            { kode: "jksa2UII", nama: "Basis Data", sks: "2" }
+        ];
+        Array.from(matkul, row => {
+            const tr = document.createElement("tr");
+            tr.className = "odd:bg-white even:bg-gray-50";
+            tr.innerHTML = `
+                <td class="p-3 tracking-wider">${row.kode}</td>
+                <td class="p-3 tracking-wider">${row.nama}</td>
+                <td class="p-3 tracking-wider">${row.sks}</td>
+                <td class="p-3 tracking-wider">
+                    <input type="checkbox" class="pilih">
+                </td>
+            `;
+            tbodyMk.appendChild(tr);
+        })
+
+        function rupiahFormatter(angka) {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimunFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(angka);
+        }
+
+        function updatePratinjau() {
+            tbodyPra.innerHTML = "";
+            let total = 0;
+            let totalHarga = 0;
+
+            document.querySelectorAll("#tabelMk .pilih:checked").forEach(c => {
+                const row = c.closest("tr");
+                const cells = row.querySelectorAll("td");
+                const kode = cells[0].textContent;
+                const mk = cells[1].textContent;
+                const sks = parseInt(cells[2].textContent);
+                const harga = sks * 300000;
+
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td class="p-3 tracking-wider">${kode}</td>
+                    <td class="p-3 tracking-wider">${mk}</td>
+                    <td class="p-3 tracking-wider">${sks}</td>
+                    <td class="p-3 tracking-wider">${rupiahFormatter(harga)}</td>
+                `;
+                tbodyPra.appendChild(tr);
+                total += sks;
+                totalHarga += harga;
+            });
+            totalSksE1.textContent = total;
+            totalHargaE1.textContent = rupiahFormatter(totalHarga);
+
+            if (total > 9) {
+                warnE1.textContent = "Peringatan: SKS yang dipilih melebihi batas maksimal (9 SKS)!";
+                warn.classList.remove("hidden");
+                confBtn.disabled = true;
+            } else {
+                warnE1.classList.add("hidden");
+                confBtn.disabled = false;
+            }
+        }
+
+        document.querySelectorAll("#tabelMk .pilih").forEach(cb => {
+            cb.addEventListener("change", updatePratinjau);
+        });
+    </script>
 </body>
 
 </html>
