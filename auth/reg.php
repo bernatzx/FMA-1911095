@@ -6,6 +6,10 @@ include_once 'authH.php';
 <form class="space-y-4 font-medium">
     <div>
         <input class="w-full bg-gray-200 rounded-md p-3 outline-none font-medium text-gray-800" type="text" name=""
+            placeholder="Nama Pengguna" id="">
+    </div>
+    <div>
+        <input class="w-full bg-gray-200 rounded-md p-3 outline-none font-medium text-gray-800" type="text" name=""
             placeholder="Masukkan NPM" id="">
     </div>
     <div>
