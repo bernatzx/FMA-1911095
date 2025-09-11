@@ -15,7 +15,7 @@ require_once 'conf.php';
 <body>
     <div class="flex h-screen w-screen">
         <nav class="p-6 flex flex-col bg-gray-200 w-[300px] border-r shadow-lg">
-            <div class="flex font-bold ">
+            <div class="flex font-bold cursor-pointer" onclick="window.location.href='<?= base() ?>'">
                 <div class="text-[45px] leading-[1]">
                     <span>S</span>
                 </div>

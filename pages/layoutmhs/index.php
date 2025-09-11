@@ -12,7 +12,7 @@
 
 <body>
     <nav class="flex justify-between p-4 shadow-md border-b-2 w-full start-0 fixed top-0 z-20 bg-white">
-        <div class="flex font-bold">
+        <div class="flex font-bold cursor-pointer" onclick="window.location.href='<?= base() ?>'">
             <div class="text-[45px] leading-[1]">
                 <span>S</span>
             </div>
