@@ -48,6 +48,16 @@ include_once 'authH.php' ?>
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
+
+        const nama = formData.get('nama').trim();
+        const sandi = formData.get('sandi');
+
+        if (!nama || !sandi) {
+            errorMsg.textContent = 'Semua field wajib diisi.';
+            errorBox.classList.remove('hidden');
+            return;
+        }
+
         try {
             const res = await fetch("auth.php", {
                 method: 'POST',
