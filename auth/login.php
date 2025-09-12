@@ -44,23 +44,27 @@ include_once 'authH.php' ?>
             errorBox.classList.toggle('hidden');
         });
     }
-    
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
-        const res = await fetch("auth.php", {
-            method: 'POST',
-            body: formData
-        });
-        const data = await res.json();
-        if (data.success) {
-            window.location = '<?= base() ?>';
-        } else {
-            errorMsg.textContent = data.msg;
+        try {
+            const res = await fetch("auth.php", {
+                method: 'POST',
+                body: formData
+            });
+            const data = await res.json();
+            if (data.success) {
+                window.location = '<?= base() ?>';
+            } else {
+                errorMsg.textContent = data.msg;
+                errorBox.classList.remove('hidden');
+            }
+        } catch (error) {
+            errorMsg.textContent = 'Terjadi kesalahan koneksi ke server.';
             errorBox.classList.remove('hidden');
         }
     });
-
 </script>
 
 <?php include_once 'authF.php' ?>
