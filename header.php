@@ -70,7 +70,8 @@ if (!VALID() || !ISADMIN()) {
                         <div class="text-xs">Administrator/Staf Tu</div>
                     </div>
                     <div class="flex items-center text-gray-800">
-                        <a href="" class="py-1 px-2 hover:bg-red-500 hover:text-white bg-opacity-70 rounded-full">
+                        <a href="<?= base('auth/logout.php') ?>"
+                            class="py-1 px-2 hover:bg-red-500 hover:text-white bg-opacity-70 rounded-full">
                             <i class="fas fa-right-from-bracket"></i>
                         </a>
                     </div>
