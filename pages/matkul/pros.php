@@ -22,7 +22,16 @@ switch ($action) {
             echo json_encode(['success' => true]);
         }
         break;
-
+    case 'delMK':
+        $id = intval($_POST['id'] ?? 0);
+        if ($id <= 0) {
+            echo json_encode(['success' => false, 'msg' => 'ID tidak valid']);
+            exit;
+        } else {
+            mysqli_query($hub, "DELETE FROM tb_mk WHERE id_mk = '$id'") or die(mysqli_error($hub));
+            echo json_encode(['success' => true]);
+        }
+        break;
     default:
         echo json_encode(['success' => false, 'msg' => 'Aksi tidak dikenali.']);
         break;

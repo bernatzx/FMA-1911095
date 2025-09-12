@@ -48,7 +48,7 @@ if (!VALID() || !ISADMIN()) {
                         <?php foreach ($items as $men) {
                             $u = (strpos($halamanAktif, $men["url"]) === 0); ?>
                             <a href="<?= $men['url'] ?>"
-                                class="gap-2 text-gray-800 flex items-center p-2 rounded-md hover:shadow-sm hover:text-white hover:bg-blue-400 <?= ($u ? 'bg-blue-400 text-white shadow-sm' : '') ?>">
+                                class="gap-2 mb-2 text-gray-800 flex items-center p-2 rounded-md hover:shadow-sm hover:text-white hover:bg-blue-400 <?= ($u ? 'bg-blue-400 text-white shadow-sm' : '') ?>">
                                 <i class="<?= $men['icon'] ?> fa-fw"></i>
                                 <?= $men['label'] ?>
                             </a>

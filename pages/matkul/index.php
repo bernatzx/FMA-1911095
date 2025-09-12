@@ -50,8 +50,7 @@
                                 <i class="fas fa-pencil"></i>
                                 <span>Ubah</span>
                             </button>
-                            <button type="button"
-                                onclick="if(confirm('Anda akan menghapus data ini?')){window.location.href='del.php?id=<?= $row['id_mk'] ?>'}"
+                            <button type="button" onclick="delMK(<?= $row['id_mk'] ?>)"
                                 class="bg-red-200 py-1 px-2 bg-opacity-60 hover:bg-opacity-100 rounded-lg text-red-800 flex items-center gap-1">
                                 <i class="fas fa-trash"></i>
                                 <span>Hapus</span>
@@ -67,5 +66,30 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    async function delMK(id) {
+        if (!confirm('Anda yakin akan menghapusnya?')) return;
+
+        const formData = new FormData();
+        formData.append('action', 'delMK');
+        formData.append('id', id);
+
+        try {
+            const res = await fetch('pros.php', {
+                method: 'POST',
+                body: formData
+            })
+            const data = await res.json();
+            if (data.success) {
+                location.reload();
+            } else {
+                alert(data.msg || 'Gagal menghapus data.');
+            }
+        } catch (error) {
+            alert('Terjadi kesalahan server');
+        }
+    }
+</script>
 
 <?php include_once "../../footer.php"; ?>
