@@ -1,5 +1,9 @@
 <?php
 require_once 'conf.php';
+if (!VALID() || !ISADMIN()) {
+    header("Location: " . base());
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
