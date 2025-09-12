@@ -1,13 +1,8 @@
 <?php include_once "../../header.php" ?>
 
 <div class="space-y-4 divide-y-2">
-    <div class="font-medium flex justify-between">
-        <div>
-            Hallo, Farhat
-        </div>
-        <div>
-            Logout
-        </div>
+    <div class="font-medium">
+            Hallo, <?=$_SESSION['userData']['nama']?>
     </div>
     <div class="flex pt-4 justify-center">
         <div class="w-[800px]">

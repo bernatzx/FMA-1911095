@@ -48,7 +48,7 @@ if (!VALID() || !ISMHS()) {
 
     <div class="font-medium w-[800px] m-auto mt-[100px]">
         <div class="text-gray-800">
-            Selamat Datang, Farhat
+            Selamat Datang, <?=$_SESSION['userData']['nama']?>
         </div>
         <div class="my-[100px] text-center text-2xl">
             SISTEM INFORMASI PENDAFTARAN DAN PEMBAYARAN MATA
