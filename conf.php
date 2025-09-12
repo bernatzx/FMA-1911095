@@ -9,6 +9,14 @@ function VALID()
 {
     return isset($_SESSION['valid']) && $_SESSION['valid'] === true;
 }
+function ISADMIN()
+{
+    return isset($_SESSION['userData']) && $_SESSION['userData']['level'] === 'admin';
+}
+function ISMHS()
+{
+    return isset($_SESSION['userData']) && $_SESSION['userData']['level'] === 'mhs';
+}
 function base($url = null)
 {
     $base = 'http://localhost/farhat';
