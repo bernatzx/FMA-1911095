@@ -3,6 +3,7 @@ $label = 'Masuk';
 include_once 'authH.php' ?>
 
 <form class="space-y-4 font-medium" id="loginForm">
+    <input type="hidden" name="action" value="login">
     <div>
         <input class="w-full bg-gray-200 rounded-md p-3 outline-none font-medium text-gray-800" type="text" name="nama"
             placeholder="Nama Pengguna" required>
