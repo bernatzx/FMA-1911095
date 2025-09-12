@@ -35,12 +35,12 @@
         </thead>
         <tbody>
             <?php
-            $no = 0;
+            $no = 1;
             $sqlMK = mysqli_query($hub, "SELECT * FROM tb_mk") or die(mysqli_error($hub));
             if (mysqli_num_rows($sqlMK) > 0) {
                 while ($row = mysqli_fetch_assoc($sqlMK)) { ?>
                     <tr class="odd:bg-white even:bg-gray-50">
-                        <td class="p-3 tracking-wider text-sm text-gray-700"><?= $no ?></td>
+                        <td class="p-3 tracking-wider text-sm text-gray-700"><?= $no++ ?></td>
                         <td class="p-3 tracking-wider text-sm text-gray-700"><?= $row['kode'] ?></td>
                         <td class="p-3 tracking-wider text-sm text-gray-700"><?= $row['nama'] ?></td>
                         <td class="p-3 tracking-wider text-sm text-gray-700"><?= $row['sks'] ?></td>

@@ -93,7 +93,7 @@
             })
             const data = await res.json();
             if (data.success) {
-                window.location = <?= base('pages/matkul/') ?>;
+                window.location = '<?= base("pages/matkul/") ?>';
             } else {
                 errorMsg.textContent = data.msg;
                 errorBox.classList.remove('hidden');
