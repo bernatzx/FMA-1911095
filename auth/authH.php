@@ -1,4 +1,10 @@
-<?php require_once '../conf.php'; ?>
+<?php 
+require_once '../conf.php';
+if (VALID()) {
+    header("Location: ". base());
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
