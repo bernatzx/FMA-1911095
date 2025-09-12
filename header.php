@@ -66,7 +66,7 @@ if (!VALID() || !ISADMIN()) {
                         </div>
                     </div>
                     <div class="font-medium flex-auto text-gray-800">
-                        <div><?= $_SESSION['userData']['nama'] ?></div>
+                        <div class="uppercase"><?= $_SESSION['userData']['nama'] ?></div>
                         <div class="text-xs">Administrator/Staf Tu</div>
                     </div>
                     <div class="flex items-center text-gray-800">

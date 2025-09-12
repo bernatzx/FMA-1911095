@@ -4,6 +4,7 @@ if (!VALID() || !ISMHS()) {
     header("Location: " . base());
     exit;
 }
+$namapengguna = $_SESSION['userData']['nama'];
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +35,8 @@ if (!VALID() || !ISMHS()) {
                     <i class="text-[22px] fas fa-user top-1 absolute"></i>
                 </div>
             </div>
-            <div class="font-medium text-gray-800">
-                <div>Farhat Alkatiri</div>
+            <div class="font-medium text-gray-800 uppercase">
+                <div><?= $namapengguna ?></div>
             </div>
             <div class="flex items-center text-gray-800">
                 <a href="<?= base('auth/logout.php') ?>"
@@ -48,7 +49,7 @@ if (!VALID() || !ISMHS()) {
 
     <div class="font-medium w-[800px] m-auto mt-[100px]">
         <div class="text-gray-800">
-            Selamat Datang, <?=$_SESSION['userData']['nama']?>
+            Selamat Datang, <?= $namapengguna ?>
         </div>
         <div class="my-[100px] text-center text-2xl">
             SISTEM INFORMASI PENDAFTARAN DAN PEMBAYARAN MATA
