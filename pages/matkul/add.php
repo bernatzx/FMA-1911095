@@ -21,21 +21,21 @@
 <div class="flex justify-center">
     <form class="w-[600px] border rounded-lg p-6 shadow space-y-3" id="addMK">
         <input type="hidden" name="action" value="addMK">
-        <div class="">
+        <div>
             <div class="font-medium text-sm mb-2">
                 Kode MK :
             </div>
             <input name="kode" class="border border-gray-300 bg-gray-200 rounded-sm outline-none p-2 w-full" required
                 type="text">
         </div>
-        <div class="">
+        <div>
             <div class="font-medium text-sm mb-2">
                 Mata Kuliah :
             </div>
             <input name="nama" class="border border-gray-300 bg-gray-200 rounded-sm outline-none p-2 w-full" required
                 type="text">
         </div>
-        <div class="">
+        <div>
             <div class="font-medium text-sm mb-2">
                 SKS :
             </div>

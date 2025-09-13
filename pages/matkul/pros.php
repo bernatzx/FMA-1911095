@@ -22,6 +22,15 @@ switch ($action) {
             echo json_encode(['success' => true]);
         }
         break;
+    case 'editMK':
+        $id = trim(mysqli_real_escape_string($hub, $_POST['id']));
+        $kode = trim(mysqli_real_escape_string($hub, $_POST['kode']));
+        $nama = trim(mysqli_real_escape_string($hub, $_POST['nama']));
+        $sks = trim(mysqli_real_escape_string($hub, $_POST['sks']));
+
+        mysqli_query($hub, "UPDATE tb_mk SET kode = '$kode', nama = '$nama', sks = '$sks' WHERE id_mk = '$id'") or die(mysqli_error($hub));
+        echo json_encode(['success' => true]);
+        break;
     case 'delMK':
         $id = intval($_POST['id'] ?? 0);
         if ($id <= 0) {
