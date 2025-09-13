@@ -31,12 +31,13 @@ $namapengguna = $_SESSION['userData']['nama'];
         <div class="flex items-center gap-2">
             <div class="border-[3px] justify-center text-gray-600 border-gray-600 flex items-center rounded-full">
                 <div
-                    class="w-6 h-6 flex items-center relative justify-center border-2 border-transparent rounded-full overflow-hidden">
+                    class="w-8 h-8 flex items-center relative justify-center border-2 border-transparent rounded-full overflow-hidden">
                     <i class="text-[22px] fas fa-user top-1 absolute"></i>
                 </div>
             </div>
-            <div class="font-medium text-gray-800 uppercase">
-                <div><?= $namapengguna ?></div>
+            <div class="font-medium text-gray-800">
+                <div class="uppercase"><?= $namapengguna ?></div>
+                <div class="text-xs"><?=$_SESSION['userData']['npm']?></div>
             </div>
             <div class="flex items-center text-gray-800">
                 <a href="<?= base('auth/logout.php') ?>"

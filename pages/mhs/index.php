@@ -33,12 +33,15 @@
                 while ($row = mysqli_fetch_assoc($sql)) { ?>
                     <tr class="odd:bg-white even:bg-gray-50">
                         <td class="p-3 tracking-wider text-sm text-gray-700"><?= $no++ ?></td>
-                        <td class="p-3 tracking-wider text-sm text-gray-700"><?=$row['npm']?></td>
-                        <td class="p-3 tracking-wider text-sm text-gray-700"><?=$row['nama']?></td>
+                        <td class="p-3 tracking-wider text-sm text-gray-700"><?= $row['npm'] ?></td>
+                        <td class="p-3 tracking-wider text-sm text-gray-700"><?= $row['nama'] ?></td>
                     </tr>
                 <?php }
-            }
-            ?>
+            } else { ?>
+                <tr>
+                    <td colspan="3" align="center" class="text-medium text-gray-400 p-3 text-sm">Data Kosong!</td>
+                </tr>
+            <?php } ?>
         </tbody>
     </table>
 </div>
