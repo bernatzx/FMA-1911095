@@ -26,11 +26,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="odd:bg-white even:bg-gray-50">
-                <td class="p-3 tracking-wider text-sm text-gray-700">1</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">07351811072</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">Andika Sukardi</td>
-            </tr>
+            <?php
+            $no = 1;
+            $sql = mysqli_query($hub, "SELECT * FROM tb_user WHERE level = 'mhs'") or die(mysqli_error($hub));
+            if (mysqli_num_rows($sql) > 0) {
+                while ($row = mysqli_fetch_assoc($sql)) { ?>
+                    <tr class="odd:bg-white even:bg-gray-50">
+                        <td class="p-3 tracking-wider text-sm text-gray-700"><?= $no++ ?></td>
+                        <td class="p-3 tracking-wider text-sm text-gray-700"><?=$row['npm']?></td>
+                        <td class="p-3 tracking-wider text-sm text-gray-700"><?=$row['nama']?></td>
+                    </tr>
+                <?php }
+            }
+            ?>
         </tbody>
     </table>
 </div>
