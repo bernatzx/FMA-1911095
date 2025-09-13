@@ -18,7 +18,7 @@ if (!VALID() || !ISADMIN()) {
 
 <body>
     <div class="flex h-screen w-screen">
-        <nav class="p-6 flex flex-col bg-gray-200 w-[300px] border-r shadow-lg">
+        <nav class="p-6 flex flex-col bg-gray-200 w-[300px] border-r shadow-lg fixed h-screen">
             <div class="flex font-bold cursor-pointer" onclick="window.location.href='<?= base() ?>'">
                 <div class="text-[45px] leading-[1]">
                     <span>S</span>
@@ -78,4 +78,4 @@ if (!VALID() || !ISADMIN()) {
                 </div>
             </div>
         </nav>
-        <div class="p-6 flex-1">
+        <div class="p-6 flex-1 ml-[300px]">
