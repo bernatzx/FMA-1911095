@@ -37,7 +37,7 @@ $namapengguna = $_SESSION['userData']['nama'];
             </div>
             <div class="font-medium text-gray-800">
                 <div class="uppercase"><?= $namapengguna ?></div>
-                <div class="text-xs"><?=$_SESSION['userData']['npm']?></div>
+                <div class="text-xs"><?= $_SESSION['userData']['npm'] ?></div>
             </div>
             <div class="flex items-center text-gray-800">
                 <a href="<?= base('auth/logout.php') ?>"
@@ -62,7 +62,7 @@ $namapengguna = $_SESSION['userData']['nama'];
         <div id="sesiPratinjau" class="py-6">
             <div class="gap-2 text-gray-800 flex items-center">
                 <div class="text-xs">
-                    Pilih Mata Kuliah Semester Pendek yang akan Dikontrak
+                    Mata Kuliah Semester Pendek yang tersedia
                 </div>
                 <div class="border-t flex-grow"></div>
             </div>
@@ -82,7 +82,27 @@ $namapengguna = $_SESSION['userData']['nama'];
                             <th class="p-3 text-left tracking-wider w-20">Pilih</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                        <?php
+                        $sql = mysqli_query($hub, "SELECT * FROM tb_mk") or die(mysqli_error($hub));
+                        if (mysqli_num_rows($sql) > 0) {
+                            while ($row = mysqli_fetch_assoc($sql)) { ?>
+                                <tr class="odd:bg-white even:bg-gray-50">
+                                    <td class="p-3 tracking-wider"><?= $row['kode'] ?></td>
+                                    <td class="p-3 tracking-wider"><?= $row['nama'] ?></td>
+                                    <td class="p-3 tracking-wider"><?= $row['sks'] ?></td>
+                                    <td class="p-3 tracking-wider">
+                                        <input type="checkbox" class="pilih">
+                                    </td>
+                                </tr>
+                            <?php }
+                        } else { ?>
+                            <tr>
+                                <td colspan="4" align="center" class="text-medium text-gray-400 p-3 text-s">Data Kosong!
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
                 </table>
             </div>
 
@@ -180,38 +200,38 @@ $namapengguna = $_SESSION['userData']['nama'];
             sesiBayar.classList.remove("hidden");
         })
 
-        const tbodyMk = document.querySelector("#tabelMk tbody");
+        // const tbodyMk = document.querySelector("#tabelMk tbody");
         const tbodyPra = document.querySelector("#tabelPra tbody");
         const totalSksE1 = document.getElementById("totalSks");
         const totalHargaE1 = document.getElementById("totalHarga");
         const warnE1 = document.getElementById("warn");
 
-        const matkul = [
-            { kode: "19827sa", nama: "Linux", sks: "2" },
-            { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
-            { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
-            { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
-            { kode: "jksa2UII", nama: "Basis Data", sks: "2" }
-        ];
-        Array.from(matkul, row => {
-            const tr = document.createElement("tr");
-            tr.className = "odd:bg-white even:bg-gray-50";
-            tr.innerHTML = `
-                <td class="p-3 tracking-wider">${row.kode}</td>
-                <td class="p-3 tracking-wider">${row.nama}</td>
-                <td class="p-3 tracking-wider">${row.sks}</td>
-                <td class="p-3 tracking-wider">
-                    <input type="checkbox" class="pilih">
-                </td>
-            `;
-            tbodyMk.appendChild(tr);
-        })
+        // const matkul = [
+        //     { kode: "19827sa", nama: "Linux", sks: "2" },
+        //     { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
+        //     { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
+        //     { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
+        //     { kode: "jksa2UII", nama: "Basis Data", sks: "2" }
+        // ];
+        // Array.from(matkul, row => {
+        //     const tr = document.createElement("tr");
+        //     tr.className = "odd:bg-white even:bg-gray-50";
+        //     tr.innerHTML = `
+        //         <td class="p-3 tracking-wider">${row.kode}</td>
+        //         <td class="p-3 tracking-wider">${row.nama}</td>
+        //         <td class="p-3 tracking-wider">${row.sks}</td>
+        //         <td class="p-3 tracking-wider">
+        //             <input type="checkbox" class="pilih">
+        //         </td>
+        //     `;
+        //     tbodyMk.appendChild(tr);
+        // })
 
         function rupiahFormatter(angka) {
             return new Intl.NumberFormat('id-ID', {
                 style: 'currency',
                 currency: 'IDR',
-                minimunFractionDigits: 0,
+                minimumFractionDigits: 0,
                 maximumFractionDigits: 0
             }).format(angka);
         }

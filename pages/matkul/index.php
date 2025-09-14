@@ -10,7 +10,7 @@
         </span>
     </div>
     <div class="flex gap-2 items-center">
-        <a href="" class="bg-gray-300 text-gray-500 text-sm px-3 py-2 rounded-lg">
+        <a href="" class="bg-gray-300 hover:bg-gray-400 hover:text-gray-600 text-gray-500 text-sm px-3 py-2 rounded-lg">
             <i class="fas fa-refresh"></i>
         </a>
         <button onclick="window.location.href='add.php'" type="button"

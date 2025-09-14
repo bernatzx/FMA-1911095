@@ -10,10 +10,9 @@
         </span>
     </div>
     <div>
-        <button onclick="window.location.href=''" type="button"
-            class="bg-opacity-90 gap-2 px-5 py-2 bg-gray-500 hover:bg-green-800 text-sm text-white rounded-lg">
+        <a href="" class="bg-gray-300 hover:text-gray-600 hover:bg-gray-400 text-gray-500 text-sm px-3 py-2 rounded-lg">
             <i class="fas fa-refresh"></i>
-        </button>
+        </a>
     </div>
 </div>
 <div class="overflow-auto rounded-lg shadow">
