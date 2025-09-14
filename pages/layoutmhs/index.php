@@ -4,6 +4,14 @@ if (!VALID() || !ISMHS()) {
     header("Location: " . base());
     exit;
 }
+$id_MHS = $_SESSION['userData']['id_user'];
+$qkrs = mysqli_query($hub, "SELECT id_krs, status_krs, total_sks, total_harga FROM tb_krs WHERE id_user = '$id_MHS'") or die(mysqli_error($hub));
+if (mysqli_num_rows($qkrs) > 0) {
+    $dataKRS = mysqli_fetch_assoc($qkrs);
+    $statusKRS = $dataKRS['status_krs'];
+    $totalsks = $dataKRS['total_sks'];
+    $totalharga = $dataKRS['total_harga'];
+}
 $namapengguna = $_SESSION['userData']['nama'];
 ?>
 
@@ -59,7 +67,7 @@ $namapengguna = $_SESSION['userData']['nama'];
         </div>
 
         <!-- SESI PILIH DAN PRATINJAU -->
-        <div id="sesiPratinjau" class="py-6">
+        <div class="py-6 <?= (mysqli_num_rows($qkrs) > 0) ? 'hidden' : '' ?>">
             <div class="gap-2 text-gray-800 flex items-center">
                 <div class="text-xs">
                     Mata Kuliah Semester Pendek yang tersedia
@@ -122,7 +130,7 @@ $namapengguna = $_SESSION['userData']['nama'];
                             <th class="p-3 text-left tracking-wider w-36">Kode MK</th>
                             <th class="p-3 text-left tracking-wider">Mata Kuliah</th>
                             <th class="p-3 text-left tracking-wider w-20">SKS</th>
-                            <th class="p-3 text-left tracking-wider w-20">Tiuds</th>
+                            <th class="p-3 text-left tracking-wider w-20">Harga</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -135,7 +143,7 @@ $namapengguna = $_SESSION['userData']['nama'];
                     </tfoot>
                 </table>
                 <div class="py-3">
-                    <button id="confBtn"
+                    <button id="confBtn" type="submit"
                         class=" disabled:bg-opacity-30 flex gap-2 items-center p-2 hover:bg-opacity-100 bg-opacity-60 rounded-md bg-green-500 text-green-800 float-right">
                         <i class="fas fa-check"></i>
                         <div>Konfirmasi</div>
@@ -145,7 +153,7 @@ $namapengguna = $_SESSION['userData']['nama'];
         </div>
 
         <!-- SESI BAYAR -->
-        <div class="py-6 hidden" id="sesiBayar">
+        <div class="py-6 mb-6 <?= ($statusKRS === 'confirm' || $statusKRS === 'lunas') ? '' : 'hidden' ?>">
             <div class="gap-2 text-gray-800 flex items-center mb-6">
                 <div class="border-t flex-grow"></div>
                 <div class="text-xs">
@@ -159,73 +167,108 @@ $namapengguna = $_SESSION['userData']['nama'];
                         <th class="p-3 text-left tracking-wider w-36">Kode MK</th>
                         <th class="p-3 text-left tracking-wider">Mata Kuliah</th>
                         <th class="p-3 text-left tracking-wider w-20">SKS</th>
-                        <th class="p-3 text-left tracking-wider w-48">Total Harga</th>
+                        <th class="p-3 text-left tracking-wider w-48">Harga</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="odd:bg-white even:bg-gray-50">
-                        <td class="p-3 tracking-wider">287HJJS5</td>
-                        <td class="p-3 tracking-wider">Linux</td>
-                        <td class="p-3 tracking-wider">2</td>
-                        <td class="p-3 tracking-wider">Rp.600.000</td>
-                    </tr>
+                    <?php
+                    $idKRS = $dataKRS['id_krs'];
+                    $q = mysqli_query($hub, "SELECT m.kode, m.nama, d.sks, d.harga FROM tb_krs_detail d JOIN tb_mk m ON d.id_mk = m.id_mk WHERE d.id_krs = '$idKRS'") or die(mysqli_error($hub));
+                    if (mysqli_num_rows($q) > 0) {
+                        while ($row = mysqli_fetch_assoc($q)) { ?>
+                            <tr class="odd:bg-white even:bg-gray-50">
+                                <td class="p-3 tracking-wider"><?= $row['kode'] ?></td>
+                                <td class="p-3 tracking-wider"><?= $row['nama'] ?></td>
+                                <td class="p-3 tracking-wider"><?= $row['sks'] ?></td>
+                                <td class="p-3 tracking-wider">Rp.<?= number_format($row['harga'], 0, ',', '.') ?></td>
+                            </tr>
+                        <?php }
+                    } ?>
                 </tbody>
                 <tfoot class="bg-gray-100 font-semibold border-t-2">
                     <tr>
                         <td class="p-3 tracking-wider" colspan="2">Total</td>
-                        <td class="p-3 tracking-wider">0</td>
-                        <td class="p-3 tracking-wider">0</td>
+                        <td class="p-3 tracking-wider"><?= $totalsks ?></td>
+                        <td class="p-3 tracking-wider">Rp.<?= number_format($totalharga, 0, ',', '.') ?></td>
                     </tr>
                 </tfoot>
             </table>
             <div class="py-3">
-                <button
-                    class="flex gap-2 items-center p-2 hover:bg-opacity-100 bg-opacity-60 rounded-md bg-green-500 text-green-800 float-right">
-                    <i class="fas fa-credit-card"></i>
-                    <div>Bayar</div>
-                </button>
+                <?php
+                if ($statusKRS === 'confirm') { ?>
+                    <button onclick="bayar(<?= $dataKRS['id_krs'] ?>)" type="submit"
+                        class="flex gap-2 items-center p-2 hover:bg-opacity-100 bg-opacity-60 rounded-md bg-green-500 text-green-800 float-right">
+                        <i class="fas fa-credit-card"></i>
+                        <div>Bayar</div>
+                    </button>
+                <?php } elseif ($statusKRS === 'lunas') { ?>
+                    <button>Cetak</button>
+                <?php } ?>
             </div>
         </div>
     </div>
 
     <script src="<?= base('assets/js/all.min.js') ?>"></script>
     <script>
-        const sesiPratinjau = document.getElementById("sesiPratinjau");
-        const sesiBayar = document.getElementById("sesiBayar");
         const confBtn = document.getElementById("confBtn");
-        sesiBayar.classList.add("hidden");
-        confBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            sesiPratinjau.classList.add("hidden");
-            sesiBayar.classList.remove("hidden");
-        })
-
-        // const tbodyMk = document.querySelector("#tabelMk tbody");
         const tbodyPra = document.querySelector("#tabelPra tbody");
         const totalSksE1 = document.getElementById("totalSks");
         const totalHargaE1 = document.getElementById("totalHarga");
         const warnE1 = document.getElementById("warn");
 
-        // const matkul = [
-        //     { kode: "19827sa", nama: "Linux", sks: "2" },
-        //     { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
-        //     { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
-        //     { kode: "8sdnjs", nama: "Pemrograman Web", sks: "3" },
-        //     { kode: "jksa2UII", nama: "Basis Data", sks: "2" }
-        // ];
-        // Array.from(matkul, row => {
-        //     const tr = document.createElement("tr");
-        //     tr.className = "odd:bg-white even:bg-gray-50";
-        //     tr.innerHTML = `
-        //         <td class="p-3 tracking-wider">${row.kode}</td>
-        //         <td class="p-3 tracking-wider">${row.nama}</td>
-        //         <td class="p-3 tracking-wider">${row.sks}</td>
-        //         <td class="p-3 tracking-wider">
-        //             <input type="checkbox" class="pilih">
-        //         </td>
-        //     `;
-        //     tbodyMk.appendChild(tr);
-        // })
+        confBtn.addEventListener("click", async (e) => {
+            e.preventDefault();
+
+            let mkTerpilih = [];
+            document.querySelectorAll("#tabelMk .pilih:checked").forEach(c => {
+                const row = c.closest('tr');
+                const code = row.querySelectorAll('td')[0].textContent.trim();
+                mkTerpilih.push(code);
+            })
+
+            const formData = new FormData()
+            formData.append('action', 'kontrakMk');
+            formData.append('kodeMk', JSON.stringify(mkTerpilih));
+            formData.append('totalSks', totalSksE1.textContent.trim());
+            formData.append('totalHarga', totalHargaE1.textContent.replace(/\D/g, '').trim());
+            try {
+                const res = await fetch('pros.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                const data = await res.json();
+                if (data.success) {
+                    location.reload();
+                } else {
+                    warnE1.textContent = data.msg;
+                    warnE1.classList.remove("hidden");
+                }
+            } catch (error) {
+                alert('Terjadi kesalahan server');
+            }
+
+        })
+
+        async function bayar(idkrs) {
+            if (!confirm('Anda akan membayarnya?')) return;
+            const formData = new FormData();
+            formData.append('action', 'bayar');
+            formData.append('id', idkrs);
+            try {
+                const res = await fetch('pros.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                const data = await res.json();
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            } catch (error) {
+                alert('Terjadi kesalahan server');
+            }
+        }
 
         function rupiahFormatter(angka) {
             return new Intl.NumberFormat('id-ID', {
@@ -263,13 +306,8 @@ $namapengguna = $_SESSION['userData']['nama'];
             totalSksE1.textContent = total;
             totalHargaE1.textContent = rupiahFormatter(totalHarga);
 
-            if (total > 9) {
-                warnE1.textContent = "Peringatan: SKS yang dipilih melebihi batas maksimal (9 SKS)!";
-                warn.classList.remove("hidden");
-                confBtn.disabled = true;
-            } else {
+            if (total <= 9) {
                 warnE1.classList.add("hidden");
-                confBtn.disabled = false;
             }
         }
 
