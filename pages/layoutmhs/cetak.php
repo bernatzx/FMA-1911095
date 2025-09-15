@@ -16,7 +16,7 @@ $npm = $_SESSION['userData']['npm'];
 
 $idKRS = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-$q = mysqli_query($hub, "SELECT m.kode, m.nama, d.sks, d.harga 
+$q = mysqli_query($hub, "SELECT m.kode, m.nama, d.sks
     FROM tb_krs_detail d 
     JOIN tb_mk m ON d.id_mk = m.id_mk 
     WHERE d.id_krs = '$idKRS' AND d.id_krs IN (
@@ -24,22 +24,21 @@ $q = mysqli_query($hub, "SELECT m.kode, m.nama, d.sks, d.harga
     )");
 
 $html = "
-<h2 style='text-align:center'>Kartu Rencana Studi (KRS)</h2>
+<div style='font-size: 28px; font-weight: 600; text-align:center'>Kartu Rencana Studi (KRS)</div>
+<div style='text-align:center; font-size: 22px;'>Kartu Rencana Studi (KRS)</div>
 <p>Nama: " . htmlspecialchars($namapengguna) . "</p>
-<p>Nama: " . htmlspecialchars($npm) . "</p>
+<p>NPM: " . htmlspecialchars($npm) . "</p>
 <table border='1' cellspacing='0' cellpadding='6' width='100%'>
 <thead>
 <tr>
     <th>Kode MK</th>
     <th>Nama MK</th>
     <th>SKS</th>
-    <th>Harga</th>
 </tr>
 </thead>
 <tbody>";
 
 $totalSks = 0;
-$totalHarga = 0;
 
 if ($q && mysqli_num_rows($q) > 0) {
     while ($row = mysqli_fetch_assoc($q)) {
@@ -47,10 +46,8 @@ if ($q && mysqli_num_rows($q) > 0) {
             <td>" . htmlspecialchars($row['kode']) . "</td>
             <td>" . htmlspecialchars($row['nama']) . "</td>
             <td>" . (int)$row['sks'] . "</td>
-            <td>Rp." . number_format($row['harga'], 0, ',', '.') . "</td>
         </tr>";
         $totalSks += $row['sks'];
-        $totalHarga += $row['harga'];
     }
 } else {
     $html .= "<tr><td colspan='4' align='center'>Data tidak ditemukan</td></tr>";
@@ -61,7 +58,6 @@ $html .= "</tbody>
 <tr>
     <td colspan='2'><b>Total</b></td>
     <td><b>$totalSks</b></td>
-    <td><b>Rp." . number_format($totalHarga, 0, ',', '.') . "</b></td>
 </tr>
 </tfoot>
 </table>

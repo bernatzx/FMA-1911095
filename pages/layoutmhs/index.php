@@ -205,7 +205,7 @@ $namapengguna = $_SESSION['userData']['nama'];
                     <a href="cetak.php?id=<?= $dataKRS['id_krs'] ?>" target="_blank" type="submit"
                         class="flex gap-2 items-center p-2 hover:bg-opacity-100 bg-opacity-60 rounded-md bg-green-500 text-green-800 float-right">
                         <i class="fas fa-print"></i>
-                        <div>Cetak</div>
+                        <div>Cetak KRS</div>
                     </a>
                 <?php } ?>
             </div>
