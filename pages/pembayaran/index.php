@@ -28,26 +28,32 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="odd:bg-white even:bg-gray-50">
-                <td class="p-3 tracking-wider text-sm text-gray-700">1</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">07351811072</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">Andika Sukardi</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">8</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">Rp.1.000.000</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">
-                    <span class="uppercase rounded-lg bg-yellow-300 text-yellow-600 font-medium py-1 px-2 bg-opacity-50">Pending</span>
-                </td>
-            </tr>
-            <tr class="odd:bg-white even:bg-gray-50">
-                <td class="p-3 tracking-wider text-sm text-gray-700">2</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">07351811072</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">Andika Sukardi</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">8</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">Rp.800.000</td>
-                <td class="p-3 tracking-wider text-sm text-gray-700">
-                    <span class="uppercase rounded-lg bg-green-300 text-green-600 font-medium py-1 px-2 bg-opacity-50">Selesai</span>
-                </td>
-            </tr>
+            <?php
+            $no = 1;
+            $q = mysqli_query($hub, "SELECT u.npm, u.nama, k.total_sks, k.total_harga, k.status_krs FROM tb_krs k JOIN tb_user u ON k.id_user = u.id_user") or die(mysqli_error($hub));
+            if (mysqli_num_rows($q) > 0) {
+                while ($r = mysqli_fetch_assoc($q)) { ?>
+                    <tr class="odd:bg-white even:bg-gray-50">
+                        <td class="p-3 tracking-wider text-sm text-gray-700"><?= $no++ ?></td>
+                        <td class="p-3 tracking-wider text-sm text-gray-700"><?= $r['npm'] ?></td>
+                        <td class="p-3 tracking-wider text-sm text-gray-700"><?= $r['nama'] ?></td>
+                        <td class="p-3 tracking-wider text-sm text-gray-700"><?= $r['total_sks'] ?></td>
+                        <td class="p-3 tracking-wider text-sm text-gray-700">
+                            <?= number_format($r['total_harga'], 0, ',', '.') ?>
+                        </td>
+                        <td class="p-3 tracking-wider text-sm text-gray-700">
+                            <?php
+                            if ($r['status_krs'] === 'lunas') { ?>
+                                <span class="uppercase rounded-lg bg-green-300 text-green-600 font-medium py-1 px-2 bg-opacity-50">Lunas</span>
+                            <?php } else { ?>
+                                <span class="uppercase rounded-lg bg-yellow-300 text-yellow-600 font-medium py-1 px-2 bg-opacity-50">Pending</span>
+                            <?php }
+                            ?>
+                        </td>
+                    </tr>
+                <?php }
+            }
+            ?>
         </tbody>
     </table>
 </div>
