@@ -38,12 +38,16 @@
                         <td class="p-3 tracking-wider text-sm text-gray-700"><?= $r['nama'] ?></td>
                         <td class="p-3 tracking-wider text-sm text-gray-700">
                             <?php
+                            $noo = 1;
                             $idkrs = $r['id_krs'];
-                            $mk = mysqli_query($hub, "SELECT m.nama AS nama_mk FROM tb_krs_detail d JOIN tb_mk m ON d.id_mk = m.id_mk WHERE id_krs = '$idkrs'") or die($hub);
+                            $mk = mysqli_query($hub, "SELECT m.sks, m.nama AS nama_mk FROM tb_krs_detail d JOIN tb_mk m ON d.id_mk = m.id_mk WHERE id_krs = '$idkrs'") or die($hub);
                             if (mysqli_num_rows($mk) > 0) {
-                                while ($m = mysqli_fetch_assoc($mk)) {
-                                    echo "<div>$m[nama_mk]</div>";
-                                }
+                                while ($m = mysqli_fetch_assoc($mk)) { ?>
+                                    <div>
+                                        <span class="font-bold">*</span>
+                                        <?=$m['nama_mk']?>-[<?=$m['sks']?>]
+                                    </div>
+                                <?php }
                             }
                             ?>
                         </td>
