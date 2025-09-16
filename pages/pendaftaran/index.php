@@ -50,7 +50,12 @@
                         <td class="p-3 tracking-wider text-sm text-gray-700"><?= $r['total_sks'] ?></td>
                     </tr>
                 <?php }
-            }
+            } else { ?>
+                <tr>
+                    <td colspan="5" align="center" class="text-medium text-gray-400 p-3 text-sm">Belum ada data pendaftaran!
+                    </td>
+                </tr>
+            <?php }
             ?>
         </tbody>
     </table>

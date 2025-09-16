@@ -44,15 +44,21 @@
                         <td class="p-3 tracking-wider text-sm text-gray-700">
                             <?php
                             if ($r['status_krs'] === 'lunas') { ?>
-                                <span class="uppercase rounded-lg bg-green-300 text-green-600 font-medium py-1 px-2 bg-opacity-50">Lunas</span>
+                                <span
+                                    class="uppercase rounded-lg bg-green-300 text-green-600 font-medium py-1 px-2 bg-opacity-50">Lunas</span>
                             <?php } else { ?>
-                                <span class="uppercase rounded-lg bg-yellow-300 text-yellow-600 font-medium py-1 px-2 bg-opacity-50">Pending</span>
+                                <span
+                                    class="uppercase rounded-lg bg-yellow-300 text-yellow-600 font-medium py-1 px-2 bg-opacity-50">Pending</span>
                             <?php }
                             ?>
                         </td>
                     </tr>
                 <?php }
-            }
+            } else { ?>
+                <tr>
+                    <td colspan="6" align="center" class="text-medium text-gray-400 p-3 text-sm">Belum ada data pembayaran!</td>
+                </tr>
+            <?php }
             ?>
         </tbody>
     </table>
