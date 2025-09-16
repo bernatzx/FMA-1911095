@@ -51,7 +51,8 @@ switch ($action) {
                 'msg' => 'ID tidak valid'
             ]);
         } else {
-            mysqli_query($hub, "UPDATE tb_krs SET status_krs = 'lunas' WHERE id_krs = '$idkrs'") or die(mysqli_error($hub));
+            $tanggal = date("y-m-d H:i:s");
+            mysqli_query($hub, "UPDATE tb_krs SET status_krs = 'lunas', tanggal_bayar = '$tanggal' WHERE id_krs = '$idkrs'") or die(mysqli_error($hub));
             echo json_encode(['success' => true]);
         }
         break;

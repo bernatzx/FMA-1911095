@@ -72,5 +72,5 @@ $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 
 ob_clean();
-$dompdf->stream("KRS_$namapengguna.pdf", ["Attachment" => true]);
+$dompdf->stream("KRS-SP_$namapengguna.pdf", ["Attachment" => true]);
 exit;

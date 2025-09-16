@@ -202,11 +202,18 @@ $namapengguna = $_SESSION['userData']['nama'];
                         <div>Bayar</div>
                     </button>
                 <?php } elseif ($statusKRS === 'lunas') { ?>
-                    <a href="cetak.php?id=<?= $dataKRS['id_krs'] ?>" target="_blank" type="submit"
-                        class="flex gap-2 items-center p-2 hover:bg-opacity-100 bg-opacity-60 rounded-md bg-green-500 text-green-800 float-right">
-                        <i class="fas fa-print"></i>
-                        <div>Cetak KRS</div>
-                    </a>
+                    <div class="flex float-right items-center gap-2">
+                        <a href="cetak_krs.php?id=<?= $dataKRS['id_krs'] ?>" target="_blank" type="submit"
+                            class="flex gap-2 items-center p-2 hover:bg-opacity-100 bg-opacity-60 rounded-md bg-green-500 text-green-800">
+                            <i class="fas fa-print"></i>
+                            <div>Cetak KRS</div>
+                        </a>
+                        <a href="cetak_bukti.php?id=<?= $dataKRS['id_krs'] ?>"
+                            class="flex gap-2 items-center bg-gray-300 p-2 rounded-md text-gray-600">
+                            <i class="fas fa-receipt"></i>
+                            <div>Cetak Bukti</div>
+                        </a>
+                    </div>
                 <?php } ?>
             </div>
         </div>
