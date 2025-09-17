@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Sep 2025 pada 07.24
+-- Waktu pembuatan: 17 Sep 2025 pada 14.07
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.0.30
 
@@ -103,6 +103,7 @@ CREATE TABLE `tb_user` (
   `id_user` int(11) NOT NULL,
   `npm` varchar(20) NOT NULL,
   `nama` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `kata_sandi` varchar(255) NOT NULL,
   `level` enum('admin','mhs') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -111,11 +112,11 @@ CREATE TABLE `tb_user` (
 -- Dumping data untuk tabel `tb_user`
 --
 
-INSERT INTO `tb_user` (`id_user`, `npm`, `nama`, `kata_sandi`, `level`) VALUES
-(9, '', 'admin', '$2y$10$wET2m7PIsg/pyMkkAGnHz.XPFCMCOeluBsaCQ/nPbrfhh1W7dNL0y', 'admin'),
-(10, '07351911098', 'Muhammad Maulana', '$2y$10$18i7kv1e048GEshs8LzS0efq6GdDcYeucXGMBD/GuqP7qBwnrnPai', 'mhs'),
-(11, '07351911107', 'Asrul S salasa', '$2y$10$5DFdNJ16NV8ajY7qb2aQ3.DL2ZyzbyGccmX6U59GVdaQlcgSBkyzC', 'mhs'),
-(12, '07351911130', 'Rizky Ihtisamul Tsaqif', '$2y$10$C9HaHmCQNXtzxZVhnszH/.J1SIruDQNGHxtt4ZdY4.THkXKTO6e96', 'mhs');
+INSERT INTO `tb_user` (`id_user`, `npm`, `nama`, `email`, `kata_sandi`, `level`) VALUES
+(9, '', 'admin', '', '$2y$10$wET2m7PIsg/pyMkkAGnHz.XPFCMCOeluBsaCQ/nPbrfhh1W7dNL0y', 'admin'),
+(10, '07351911098', 'Muhammad Maulana', 'muhammadmaulana@gmail.com', '$2y$10$18i7kv1e048GEshs8LzS0efq6GdDcYeucXGMBD/GuqP7qBwnrnPai', 'mhs'),
+(11, '07351911107', 'Asrul S salasa', 'asrulssalasa@gmail.com', '$2y$10$5DFdNJ16NV8ajY7qb2aQ3.DL2ZyzbyGccmX6U59GVdaQlcgSBkyzC', 'mhs'),
+(12, '07351911130', 'Rizky Ihtisamul Tsaqif', 'rizkyihtisamultsaqif@gmail.com', '$2y$10$C9HaHmCQNXtzxZVhnszH/.J1SIruDQNGHxtt4ZdY4.THkXKTO6e96', 'mhs');
 
 --
 -- Indexes for dumped tables
