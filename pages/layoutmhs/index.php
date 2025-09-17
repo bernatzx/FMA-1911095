@@ -13,6 +13,8 @@ if (mysqli_num_rows($qkrs) > 0) {
     $totalharga = $dataKRS['total_harga'];
 }
 $namapengguna = $_SESSION['userData']['nama'];
+$npm = $_SESSION['userData']['npm'];
+$email = $_SESSION['userData']['email'];
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +43,7 @@ $namapengguna = $_SESSION['userData']['nama'];
                 <i class="fa-regular fa-user"></i>
             </div>
             <div class="">
-                <div><?= $namapengguna ?></div>
+                <div><?= htmlspecialchars($namapengguna) ?></div>
             </div>
             <div class="px-2 rounded-md bg-gray-100 font-medium">
                 Mahasiswa
@@ -55,13 +57,34 @@ $namapengguna = $_SESSION['userData']['nama'];
     </nav>
 
     <div class="font-medium w-[800px] m-auto mt-[100px]">
-        <div class="text-gray-800">
-            Selamat Datang, <?= $namapengguna ?>
-        </div>
-        <div class="my-[100px] text-center text-2xl">
-            SISTEM INFORMASI PENDAFTARAN DAN PEMBAYARAN MATA
-            KULIAH SEMESTER PENDEK
-            (Studi kasus : Prodi Informatika Universitas Khairun Ternate)
+        <div class="border p-8 rounded-lg shadow">
+            <div class="text-xl mb-4">
+                <i class="fas fa-graduation-cap"></i>
+                Profil Mahasiswa
+            </div>
+            <div class="flex justify-between">
+                <div>
+                    <span class="text-sm text-gray-400">
+                        Nama Lengkap
+                    </span>
+                    <br>
+                    <?= htmlspecialchars($namapengguna) ?>
+                </div>
+                <div>
+                    <span class="text-sm text-gray-400">
+                        NPM
+                    </span>
+                    <br>
+                    <?= htmlspecialchars($npm) ?>
+                </div>
+                <div>
+                    <span class="text-sm text-gray-400">
+                        Email
+                    </span>
+                    <br>
+                    <?= htmlspecialchars($email) ?>
+                </div>
+            </div>
         </div>
 
         <!-- SESI PILIH DAN PRATINJAU -->
