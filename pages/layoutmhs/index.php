@@ -36,22 +36,20 @@ $namapengguna = $_SESSION['userData']['nama'];
                 <span>Pendek</span>
             </div>
         </div>
-        <div class="flex items-center gap-2">
-            <div class="border-[3px] justify-center text-gray-600 border-gray-600 flex items-center rounded-full">
-                <div
-                    class="w-8 h-8 flex items-center relative justify-center border-2 border-transparent rounded-full overflow-hidden">
-                    <i class="text-[22px] fas fa-user top-1 absolute"></i>
-                </div>
+        <div class="flex items-center text-sm gap-4 text-gray-800">
+            <div>
+                <i class="fa-regular fa-user"></i>
             </div>
-            <div class="font-medium text-gray-800">
-                <div class="uppercase"><?= $namapengguna ?></div>
-                <div class="text-xs"><?= $_SESSION['userData']['npm'] ?></div>
+            <div class="">
+                <div><?= $namapengguna ?></div>
             </div>
-            <div class="flex items-center text-gray-800">
-                <a href="<?= base('auth/logout.php') ?>"
-                    class="py-1 px-2 hover:bg-red-500 hover:text-white bg-opacity-70 rounded-full">
-                    <i class="fas fa-right-from-bracket"></i>
-                </a>
+            <div class="px-2 rounded-md bg-gray-100 font-medium">
+                Mahasiswa
+            </div>
+            <div onclick="window.location.href='<?= base('auth/logout.php') ?>'"
+                class="hover:bg-gray-100 gap-3 cursor-pointer flex items-center text-center text-gray-800 border py-1 px-2 rounded-md shadow-sm">
+                <i class="fas fa-arrow-right-from-bracket"></i>
+                <div>Logout</div>
             </div>
         </div>
     </nav>
