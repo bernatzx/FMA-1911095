@@ -32,6 +32,7 @@ switch ($action) {
     case 'reg':
         $nama = trim(mysqli_real_escape_string($hub, $_POST['nama']));
         $npm = trim(mysqli_real_escape_string($hub, $_POST['npm']));
+        $email = mysqli_real_escape_string($hub, $_POST['email']);
         $sandi = mysqli_real_escape_string($hub, $_POST['sandi']);
         $konfirmasi = mysqli_real_escape_string($hub, $_POST['konfirmasi']);
 
@@ -45,11 +46,12 @@ switch ($action) {
             echo json_encode(['success' => false, 'msg' => 'Npm tersebut telah terdaftar.']);
         } else {
             $passENC = password_hash($sandi, PASSWORD_DEFAULT);
-            mysqli_query($hub, "INSERT INTO tb_user (npm, nama, kata_sandi, level) VALUES ('$npm', '$nama', '$passENC', 'mhs')") or die(mysqli_error($hub));
+            mysqli_query($hub, "INSERT INTO tb_user (npm, nama, email, kata_sandi, level) VALUES ('$npm', '$nama', '$email', '$passENC', 'mhs')") or die(mysqli_error($hub));
 
             $data = [
                 'npm' => $npm,
                 'nama' => $nama,
+                'email' => $email,
                 'level' => 'mhs'
             ];
             $_SESSION['valid'] = true;

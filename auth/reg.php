@@ -14,6 +14,10 @@ include_once 'authH.php';
             placeholder="Masukkan NPM" required>
     </div>
     <div>
+        <input class="w-full bg-gray-200 rounded-md p-3 outline-none font-medium text-gray-800" type="text" name="email"
+            placeholder="Email" required>
+    </div>
+    <div>
         <input class="w-full bg-gray-200 rounded-md p-3 outline-none font-medium text-gray-800" type="password"
             name="sandi" placeholder="Kata Sandi" required>
     </div>
@@ -61,10 +65,11 @@ include_once 'authH.php';
 
         const nama = formData.get('nama').trim();
         const npm = formData.get('npm').trim();
+        const email = formData.get('email');
         const sandi = formData.get('sandi');
         const konfirmasi = formData.get('konfirmasi');
 
-        if (!nama || !npm || !sandi || !konfirmasi) {
+        if (!nama || !npm || !sandi || !konfirmasi || !email) {
             errorMsg.textContent = 'Semua field wajib diisi.';
             errorBox.classList.remove('hidden');
             return;
