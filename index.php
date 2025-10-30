@@ -1,5 +1,5 @@
 <?php
-require_once "conf.php";
+require_once __DIR__ . "/conf.php";
 
 if (!VALID()) {
     header("Location: " . base('auth/'));

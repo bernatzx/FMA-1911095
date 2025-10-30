@@ -43,3 +43,9 @@ $menu = [
         ["url" => base('pages/pembayaran'), "label" => "Pembayaran", 'sublabel' => $sl_bayar, 'icon' => 'fas fa-money-bill'],
     ]
 ];
+
+$sql = mysqli_query($hub, "SELECT nilai FROM tb_hargasks LIMIT 1") or die(mysqli_error($hub));
+if (mysqli_num_rows($sql) > 0) {
+    $data = mysqli_fetch_array($sql);
+    $hargasks = $data['nilai'];
+}

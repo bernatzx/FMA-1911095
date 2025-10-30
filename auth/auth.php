@@ -9,6 +9,35 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $action = $_POST['action'] ?? '';
 switch ($action) {
+    case 'resetsandi':
+        $email = trim(mysqli_real_escape_string($hub, $_POST['email']));
+        $sandiBaru = trim(mysqli_real_escape_string($hub, $_POST['sandi-baru']));
+        $konfirmasi = trim(mysqli_real_escape_string($hub, $_POST['konfirmasi-sandi']));
+
+        if ($sandiBaru !== $konfirmasi) {
+            echo json_encode(['success' => false, 'msg' => 'Konfirmasi sandi tidak cocok.']);
+            exit;
+        }
+
+        $cek = mysqli_query($hub, "SELECT * FROM tb_user WHERE email = '$email'") or die(mysqli_error($hub));
+        if (!$email || mysqli_num_rows($cek) <= 0) {
+            echo json_encode(['success' => false, 'msg' => 'Pengguna tidak ditemukan']);
+            break;
+        } else {
+            $hashSandi = password_hash($sandiBaru, PASSWORD_DEFAULT);
+            mysqli_query($hub, "UPDATE tb_user SET kata_sandi = '$hashSandi' WHERE email = '$email' LIMIT 1") or die(mysqli_error($hub));
+            echo json_encode(['success' => true, 'msg' => 'Sandi berhasil direset']);
+        }
+        break;
+    case 'cekemail':
+        $email = trim(mysqli_real_escape_string($hub, $_POST['email']));
+        $sql = mysqli_query($hub, "SELECT * FROM tb_user WHERE email = '$email' LIMIT 1") or die(mysqli_error($hub));
+        if (mysqli_num_rows($sql) > 0) {
+            echo json_encode(['success' => true]);
+        } else {
+            echo json_encode(['success' => false, 'msg' => 'Pengguna tidak ditemukan']);
+        }
+        break;
     case 'login':
         $nama = trim(mysqli_real_escape_string($hub, $_POST['nama']));
         $sandi = mysqli_real_escape_string($hub, $_POST['sandi']);

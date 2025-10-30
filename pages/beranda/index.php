@@ -2,7 +2,7 @@
 
 <div class="space-y-4 divide-y-2">
     <div class="font-medium">
-            Hallo, <?=$_SESSION['userData']['nama']?>
+        Hallo, <?= $_SESSION['userData']['nama'] ?>
     </div>
     <div class="flex pt-4 justify-center">
         <div class="w-[800px]">
@@ -28,6 +28,15 @@
                     </div>
                 <?php }
             } ?>
+            <div class="border p-6 rounded-lg shadow flex justify-between">
+                <div class="text-xl">
+                    <span class="font-semibold">RP.</span>
+                    <?= number_format($hargasks, 0, ',', '.') ?>/<span class="text-xs font-medium">SKS</span>
+                </div>
+                <div class="bg-gray-500 text-white px-2 py-1 rounded-md shadow-md hover:bg-gray-600">
+                    <a href="edithargasks.php"><i class="text-sm fas fa-pencil"></i> Ubah</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

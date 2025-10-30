@@ -97,7 +97,7 @@ $email = $_SESSION['userData']['email'];
             </div>
             <div class="text-xs my-6 text-right">
                 <i class="fas fa-circle-info"></i>
-                <span>1 SKS Rp.300.000</span>
+                <span>1 SKS Rp.<?= number_format($hargasks, 0, ',', '.') ?></span>
             </div>
 
             <!-- TABEL MK TERSEDIA -->
@@ -322,7 +322,7 @@ $email = $_SESSION['userData']['email'];
                 const kode = cells[0].textContent;
                 const mk = cells[1].textContent;
                 const sks = parseInt(cells[2].textContent);
-                const harga = sks * 300000;
+                const harga = sks * <?= $hargasks ?>;
 
                 const tr = document.createElement("tr");
                 tr.innerHTML = `

@@ -36,7 +36,7 @@ switch ($action) {
                 $mk = mysqli_fetch_assoc($q);
                 $idMk = $mk['id_mk'];
                 $sks = $mk['sks'];
-                $harga = $sks * 300000;
+                $harga = $sks * $hargasks;
 
                 mysqli_query($hub, "INSERT INTO tb_krs_detail (id_krs, id_mk, sks, harga) VALUES ('$idKrs', '$idMk', '$sks', '$harga')") or die(mysqli_error($hub));
             }

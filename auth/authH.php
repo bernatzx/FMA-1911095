@@ -1,7 +1,7 @@
-<?php 
+<?php
 require_once '../conf.php';
 if (VALID()) {
-    header("Location: ". base());
+    header("Location: " . base());
     exit;
 }
 ?>
@@ -13,7 +13,7 @@ if (VALID()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $label ?> | SI Pendaftaran dan Pembayaran SP</title>
     <script src="<?= base('assets/js/tailwindcss.js') ?>"></script>
-</head>
+    </head>
 
 <body>
     <div class="flex items-center h-screen">
